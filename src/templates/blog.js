@@ -3,13 +3,15 @@ import Layout from '../components/layout'
 import { graphql } from 'gatsby'
 
 export const query = graphql`
-  query($slug: String!) {
-    markdownRemark(fields: {slug: {eq: $slug} }) {
-      frontmatter {
-        title
-        date
+  query {
+    allContentfulBlogPost( sort: { fields: published, order: DESC } ) {
+      edges {
+        node {
+          title
+          slug
+          published(formatString:"MMMM Do YYYY")
+        }
       }
-      html
     }
   }`
 
