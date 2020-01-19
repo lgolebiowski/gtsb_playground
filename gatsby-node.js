@@ -23,24 +23,22 @@ const path = require('path')
   // Variables can be added as the second function parameter
   const res = await graphql(`
     query {
-      allMarkdownRemark {
+      allContentfulBlogPost {
         edges {
           node {
-            fields {
-              slug
-            }
+            slug
           }
         }
       }
     }
   `)
 
-  res.data.allMarkdownRemark.edges.forEach((item) => {
+  res.data.allContentfulBlogPost.edges.forEach((item) => {
     createPage({
       component: blogTemplate,
-      path: `/blog/${item.node.fields.slug}`,
+      path: `/blog/${item.node.slug}`,
       context: {
-        slug: item.node.fields.slug
+        slug: item.node.slug
       }
     })
   })
