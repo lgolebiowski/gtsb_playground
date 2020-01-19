@@ -3,7 +3,7 @@ require("dotenv").config({
 })
 
 // check failing deployment logs
-console.log('------- #### ---------', process.env.CONTENTFUL_SPACE_ID, process.env.CONTENTFUL_ACCESS_TOKEN);
+console.log('------- #### ---------', process.env);
 
 module.exports = {
   siteMetadata: {
