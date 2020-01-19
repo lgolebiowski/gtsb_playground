@@ -2,6 +2,9 @@ require("dotenv").config({
   path: `.env.${process.env.NODE_ENV}`,
 })
 
+// check failing deployment logs
+console.log('------- #### ---------', process.env.CONTENTFUL_SPACE_ID, process.env.CONTENTFUL_ACCESS_TOKEN);
+
 module.exports = {
   siteMetadata: {
     title: `Gatsby Default Starter`,
